@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashboard </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel= "icon" href="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" type="image/png">
+
+<style>
+ body{
+            background-image: url('');
+            background: size 200%;;
+            background-repeat:no-repeat;
+        }
+
+
+.pop-on-hover {
+    transition: transform 0.3s ease; 
+    cursor: pointer; 
+  }
+  .pop-on-hover:hover {
+    transform: scale(1.1);
+  }
+
+.marshalacademy {
+    height: 40px;
+    margin-left: 20px;
+}
+
+
+
+.navbar {
+
+    z-index: 1000; 
+}
+
+.sidebar {
+   
+    z-index: 1001; 
+}
+
+
+
+body.sidebar-expanded .marshalacademy  {
+    left: 250px;
+}
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100vh;
+    background-color: #0a192f;
+    padding: 10px;
+    transition: width 0.3s;
+    overflow: hidden;
+    position: fixed;
+}
+
+/* Sidebar if expanded */
+.sidebar.expanded {
+    width: 250px;
+}
+
+button {
+    background: none;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Links */
+a {
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    text-decoration: none;
+    padding: 15px 0;
+}
+
+/*Icons for sidebar */
+i {
+    width: 40px;
+    text-align: center;
+}
+
+/*Names hide first */
+.label {
+    display: none;
+}
+
+/* What happens when expanded*/
+.sidebar.expanded .label {
+    display: inline;
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 60px;
+    right: 0;
+    height: 60px;
+    background-color: #112240;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px;
+    transition: left 0.3s;
+}
+
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+
+
+.navrightside {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.navrightside a {
+    color: #4f4f4f;
+    text-decoration: none;
+}
+
+.navrightside a:hover {
+    color: white;
+}
+
+
+.nav-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 40px;
+    margin-left: 20px;
+}
+
+body.sidebar-expanded .navbar {
+    left: 250px;
+}
+
+
+
+.footer {
+   position: fixed;
+    left: 60px; 
+    right: 0;
+    bottom: 0;
+    background-color: #19191a;
+    color: white;
+    text-align: center;
+    padding: 10px 0; 
+    transition: left 0.3s; 
+}
+                
+
+</style>
+</head>
+<body>
+<div class="navbar">
+         <div class="nav-left">
+        <img src="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" 
+             alt="Logo" class="nav-logo" style="border-radius:100px;">
+    </div>
+         <div class="navrightside">
+            <a href="#">Logout</a>
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" 
+             alt="Profile" class="nav-pic">
+        </div>
+
+    </div>
+
+
+<div class="sidebar" id="sidebar">
+
+    <button onclick="toggleSidebar()">☰</button>
+
+
+
+   <a href="#"><i>🏠</i><span class="label">Dashboard</span></a>
+    <a href="#"><i>📚</i><span class="label">Virtual Notebook</span></a>
+    <a href="#"><i>📅</i><span class="label">Tasks</span></a>
+    <a href="#"><i>👦</i><span class="label">Profile</span></a>
+    <a href="#"><i>⬅️</i><span class="label">Log out</span></a>
+
+</div>
+
+<div class="Schoolfade" style="display: flex; justify-content:center ;">
+  <img src="https://www.image2url.com/r2/default/images/1777436738012-75f88946-691a-43a8-a23c-5a8530ada967.jpg" width="10000px" style="box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+
+<h1 class="marshalacademy" id="marshalacademy" style= "color:#ffffff;font-weight:bold; text-align: center; font-size:125px; position:absolute; top:  35%; margin: 0; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); "> 
+
+                MARSHAL ACADEMY
+</h1>
+<!-- 'Absolute;top' puts the text above the image-->
+
+<p class="marshalacademy" id="marshalacademy" style= "color:#D4AF37;font-weight:bold; font-style: italic; text-align: center; font-size: 60px; position:absolute; top: 54%; margin: 0; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445); "> 
+                Forging Future Leaders Of Society
+</p>
+
+<!-- 'top:54%' controls how high the text is-->
+<p class="marshalacademy" id="marshalacademy" style= "color:#568ff9;font-weight:bold; text-align: center; font-size: 30px; position:absolute; top: 65%; margin: 0; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445); "> 
+                Est. 1667
+</p>
+</div>
+
+<!-- "text-shadow" adds a shadow effect-->
+<br><br>
+
+ 
+
+  <div class=container bg-info>
+        <div class="row">
+<h2 class="" id="my_res" style= "color:#1b2c79;text-align: center; font-size:50px;font-weight:bold;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+               The Curriculum
+</h2>
+
+</div>
+
+
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px;">
+		<div id= "photo" style="text-align: center;">
+		<img src= 
+   "https://media.istockphoto.com/id/911029160/photo/home-time.jpg?s=612x612&w=0&k=20&c=f0_8mo_6x55h2PJfIOANg6jyNMxJKJzsDl-l89iZ66M=" width="350px" id ="who" style="border-radius:5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+
+</div>
+
+<!-- 'border radius' curves the edges of the photo-->
+
+	<div id= "photo2" style="float:left;">
+		<img src= 
+   "https://media.istockphoto.com/id/641755548/photo/receiving-help-in-lesson.jpg?s=612x612&w=0&k=20&c=BdoW8J6hhQ0t0HILY9vw5rw4jPBwLPhCBpJi-zmGHhI=
+" width="350px" id ="who" style="border-radius:5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+
+  </div>
+
+<!-- 'float:left' moves the image to the left-->
+<div id= "photo2" style="float:right;">
+		<img src= 
+   "https://media.istockphoto.com/id/901968168/photo/high-school-lesson.jpg?s=612x612&w=0&k=20&c=sM91A9Dk9_yZJGgLP1dUG6aGmvoegQBtHAy2IXiP7Ow=" width="350px" id ="who" style="border-radius:5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+
+  </div>
+
+<!-- 'Box-shadow' creates a shadow effect to the image-->
+</div>
+
+<br><br><br>
+
+
+  <div class="container" style="background-color: #11216a;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+        <div class="row">
+<p class="fw-bold" id="marshalacademy" style= "color:#1370c7;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+                I. 1st Quarter
+            </p>
+
+            <!-- "background-color" adds a color behind the text-->
+
+<p class="fw-bold" id="marshalacademy" style="color:#edc234;text-align: center; font-size:32px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
+    The Foundations Of Dicipline
+</p>
+
+<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:28px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+            - Mastering basic etiquette, essential life abilities, and problem solving skills.
+            </p>
+</div>
+</div>
+
+<br><br>
+
+<div class="container" style="background-color: #11216a;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+        <div class="row">
+<p class="fw-bold" id="marshalacademy" style= "color:#1370c7;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+                II. 2nd Quarter
+            </p>
+
+<p class="fw-bold" id="marshalacademy" style="color:#edc234;text-align: center; font-size:32px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
+    The Connection To Society
+</p>
+
+<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:28px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+            - Building  team-skills, community responsibility, and social awareness.
+            </p>
+
+
+
+</div>
+</div>
+
+
+<br><br>
+
+
+
+
+
+  <div class="container" style="background-color: #11216a;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+        <div class="row">
+<p class="fw-bold" id="marshalacademy" style= "color:#1370c7;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+                III. 3rd Quarter
+            </p>
+
+<p class="fw-bold" id="marshalacademy" style="color:#edc234;text-align: center; font-size:32px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
+    The Courage To Ones-self
+</p>
+
+<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:28px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+            -Honing individual abilities, leadership skills, and critical thinking.
+            </p>
+</div>
+</div>
+
+
+<br><br>
+
+ <div class="container" style="background-color: #11216a;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+        <div class="row">
+<p class="fw-bold" id="marshalacademy" style= "color:#1370c7;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> IV. 4th Quarter
+               
+            </p>
+
+<p class="fw-bold" id="marshalacademy" style="color:#edc234;text-align: center; font-size:32px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
+    The Leadership In Righteousness
+</p>
+
+<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:28px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
+            -Implementing teachings into projects, speeches, debates, MUN, and more.
+            </p>
+</div>
+</div>
+
+</div>
+
+<br><br><br>
+
+ <div class="footer">
+    <p>Marshal Academy | Est. 1667</p>
+
+</div>
+
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("expanded");
+}
+
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("expanded");
+    document.body.classList.toggle("sidebar-expanded");
+}
+</script>
+
+</body>
+</html>
