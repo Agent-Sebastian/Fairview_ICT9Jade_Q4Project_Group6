@@ -28,6 +28,75 @@
     margin-left: 20px;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 60px;           /*Without this, it is out of place or too short*/
+    right: 0;
+    height: 60px;
+    background-color: #112240;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px;
+    transition: left 0.3s;
+}
+
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+
+
+.navrightside {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.navrightside a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navrightside a:hover {
+    color: white;
+}
+
+
+.nav-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgb(48, 48, 48); /*Makes it rounded*/
+    cursor: pointer;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 40px;
+    margin-left: 20px;
+}
+
+body.sidebar-expanded .navbar {
+    left: 250px;
+}
+
 
 
 .navbar {
@@ -104,76 +173,7 @@ a:hover {
 }
 
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 60px;
-    right: 0;
-    height: 60px;
-    background-color: #112240;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    padding: 0 20px;
-    transition: left 0.3s;
-}
-
-
-.nav-links a {
-    color: #ccc;
-    text-decoration: none;
-    margin-left: 15px;
-}
-
-.nav-links a:hover {
-    color: white;
-}
-
-
-
-.navrightside {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-
-.navrightside a {
-    color: #4f4f4f;
-    text-decoration: none;
-}
-
-.navrightside a:hover {
-    color: white;
-}
-
-
-.nav-pic {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-    cursor: pointer;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-}
-
-.nav-logo {
-    height: 40px;
-    margin-left: 20px;
-}
-
-body.sidebar-expanded .navbar {
-    left: 250px;
-}
-
-
+ 
 
 .footer {
     position: fixed;
