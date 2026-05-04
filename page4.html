@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Tasks </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
- body{
-            background-color: #f4f4f4; 
-            background-repeat:no-repeat;
-        }
 
-.pop-on-hover {
-    transition: transform 0.3s ease; 
-    cursor: pointer; 
-  }
-  .pop-on-hover:hover {
-    transform: scale(1.1);
-  }
-
-.marshalacademy {
-    height: 40px;
-    margin-left: 20px;
+/* ===== BODY ===== */
+body{
+    margin: 0;
+    background-color: #f4f4f4;
 }
 
-.sidebar {
+/* ===== SIDEBAR ===== */
+.sidebar{
     position: fixed;
     top: 0;
     left: 0;
     width: 60px;
     height: 100vh;
-    background-color: #0a192f;
+    background: #0a192f;
     padding: 10px;
-    transition: width 0.3s;
     overflow: hidden;
-    z-index: 1001; 
+    transition: 0.3s;
+    z-index: 1001;
 }
 
-.sidebar.expanded {
+.sidebar.expanded{
     width: 250px;
 }
 
-.sidebar button {
+.sidebar button{
     background: none;
     color: white;
     border: 1px solid white;
@@ -53,8 +43,7 @@
     width: 100%;
 }
 
-
-a {
+.sidebar a{
     display: flex;
     align-items: center;
     color: #ccc;
@@ -62,62 +51,57 @@ a {
     padding: 15px 0;
 }
 
-i {
+.sidebar i{
     width: 40px;
     text-align: center;
 }
 
-.label {
+.label{
     display: none;
 }
 
-.sidebar.expanded .label {
+.sidebar.expanded .label{
     display: inline;
     color: white;
 }
 
-a:hover {
-    color: white;
-}
-
-.navbar {
+/* ===== NAVBAR ===== */
+.navbar{
     position: fixed;
     top: 0;
     left: 60px;
     right: 0;
     height: 60px;
-    background-color: #112240;
-    color: white;
+    background: #112240;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
     padding: 0 20px;
-    transition: left 0.3s;
+    transition: 0.3s;
     z-index: 1000;
 }
 
-.navrightside {
+body.sidebar-expanded .navbar{
+    left: 250px;
+}
+
+.nav-right{
     margin-left: auto;
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.nav-pic {
+.nav-right img{
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    object-fit: cover;
     border: 2px solid white;
 }
 
-.nav-logo {
-    height: 40px;
-}
-
+/* ===== TASK AREA ===== */
 #alltask{
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 30px;
     padding: 20px;
     padding-left: 95px;
@@ -125,105 +109,104 @@ a:hover {
     justify-content: center;
 }
 
-
-.btn-activity {
-    color: #ffffff; 
-    font-size: 16px; 
-    background-color: #df9432;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    width: 100%; 
-    font-weight: bold;
-    margin-bottom: 15px;
-    transition: background 0.3s;
+body.sidebar-expanded #alltask{
+    padding-left: 270px;
 }
 
-.btn-activity:hover {
-    background-color: #c5822b;
-}
-
-.footer {
+/* ===== FOOTER ===== */
+.footer{
     position: fixed;
-    left: 60px; 
+    left: 60px;
     right: 0;
     bottom: 0;
-    background-color: #19191a;
+    background: #19191a;
     color: white;
     text-align: center;
-    padding: 10px 0; 
-    transition: left 0.3s; 
+    padding: 10px 0;
+    transition: 0.3s;
 }
 
-body.sidebar-expanded .navbar, 
-body.sidebar-expanded .footer {
+body.sidebar-expanded .footer{
     left: 250px;
 }
 
 </style>
 </head>
+
 <body>
 
-<div class="navbar">
-    <div class="nav-left">
-        <img src="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" alt="Logo" class="nav-logo" style="border-radius:100px;">
-    </div>
-    <div class="navrightside">
-        <a href="#" style="color:white; font-size: 14px; margin-right: 10px;">Logout</a>
-        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile" class="nav-pic">
-    </div>
-</div>
-
+<!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
+
     <button onclick="toggleSidebar()">☰</button>
+
     <a href="page2.html"><i>🏠</i><span class="label">Dashboard</span></a>
-    <a href="page3.html"><i>📚</i><span class="label">Virtual Notebook</span></a>
+    <a href="page3.html"><i>📚</i><span class="label">Notebook</span></a>
     <a href="page4.html"><i>📅</i><span class="label">Tasks</span></a>
     <a href="page5.html"><i>👦</i><span class="label">Profile</span></a>
-    <a href="index.html"><i>⬅️</i><span class="label">Log out</span></a>
+    <a href="index.html"><i>⬅️</i><span class="label">Logout</span></a>
+
 </div>
 
-<h1 style="color:#344792; font-weight:bold; font-size:60px; margin-left: 95px; margin-top: 100px; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">TASKS</h1>
+<!-- NAVBAR -->
+<div class="navbar">
 
+    <img src="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png"
+         style="height:40px; border-radius:100px;">
+
+    <div class="nav-right">
+        <a href="#" style="color:white; text-decoration:none;">Logout</a>
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
+    </div>
+
+</div>
+
+<!-- TITLE -->
+<h1 style="color:#344792; font-weight:bold; font-size:60px; margin-left:95px; margin-top:100px;">
+TASKS
+</h1>
+
+<!-- TASKS -->
 <div class="container-fluid" id="alltask">
 
-    
-    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
-        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">Math</p>
-        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Drill Sheet 2</p>
-        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: April 9 2026</p>
-        <button class="btn-activity" onclick="alert('Math Activity Started')">Take this activity</button>
+    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+        <h3>Math</h3>
+        <p>Drill Sheet 2</p>
+        <p>Deadline: April 9 2026</p>
+        <button onclick="alert('Math Activity Started')">Take activity</button>
     </div>
 
-    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
-        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">Science</p>
-        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Laboratory Act 3</p>
-        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: April 13 2026</p>
-        <button class="btn-activity" onclick="alert('Science Activity Started')">Take this activity</button>
+    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+        <h3>Science</h3>
+        <p>Laboratory Act 3</p>
+        <p>Deadline: April 13 2026</p>
+        <button onclick="alert('Science Activity Started')">Take activity</button>
     </div>
 
-    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
-        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">ICT</p>
-        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Quarter Project</p>
-        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: May 4 2026</p>
-        <button class="btn-activity" onclick="alert('ICT Activity Started')">Take this activity</button>
+    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+        <h3>ICT</h3>
+        <p>Quarter Project</p>
+        <p>Deadline: May 4 2026</p>
+        <button onclick="alert('ICT Activity Started')">Take activity</button>
     </div>
 
-    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
-        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">VE</p>
-        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Film Critique</p>
-        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: April 22 2026</p>
-        <button class="btn-activity" onclick="alert('VE Activity Started')">Take this activity</button>
+    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+        <h3>VE</h3>
+        <p>Film Critique</p>
+        <p>Deadline: April 22 2026</p>
+        <button onclick="alert('VE Activity Started')">Take activity</button>
     </div>
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-    <p style="margin:0;">Marshal Academy | Est. 1667</p>
+    Marshal Academy | Est. 1667
 </div>
 
+<!-- SCRIPT -->
 <script>
-function toggleSidebar() {
+function toggleSidebar(){
     document.getElementById("sidebar").classList.toggle("expanded");
     document.body.classList.toggle("sidebar-expanded");
 }
