@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Tasks </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel= "icon" href="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" type="image/png">
+    <link rel="icon" href="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" type="image/png">
 
 <style>
  body{
-            background-image: url('');
-            background: size 200%;;
+            background-color: #f4f4f4; /* Added a light background to see the dark cards better */
             background-repeat:no-repeat;
         }
-
 
 .pop-on-hover {
     transition: transform 0.3s ease; 
@@ -28,24 +26,6 @@
     margin-left: 20px;
 }
 
-
-
-.navbar {
-
-    z-index: 1000; 
-}
-
-.sidebar {
-   
-    z-index: 1001; 
-}
-
-
-
-body.sidebar-expanded .marshalacademy  {
-    left: 250px;
-}
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -56,24 +36,25 @@ body.sidebar-expanded .marshalacademy  {
     padding: 10px;
     transition: width 0.3s;
     overflow: hidden;
-    position: fixed;
+    z-index: 1001; 
 }
 
-/* Sidebar if expanded */
 .sidebar.expanded {
     width: 250px;
 }
 
-button {
+/* Sidebar Toggle Button */
+.sidebar button {
     background: none;
     color: white;
     border: 1px solid white;
     padding: 5px;
     cursor: pointer;
     margin-bottom: 20px;
+    width: 100%;
 }
 
-/* Links */
+/* Sidebar Links */
 a {
     display: flex;
     align-items: center;
@@ -82,18 +63,15 @@ a {
     padding: 15px 0;
 }
 
-/*Icons for sidebar */
 i {
     width: 40px;
     text-align: center;
 }
 
-/*Names hide first */
 .label {
     display: none;
 }
 
-/* What happens when expanded*/
 .sidebar.expanded .label {
     display: inline;
     color: white;
@@ -106,30 +84,18 @@ a:hover {
 .navbar {
     position: fixed;
     top: 0;
-    left: 60px;           /*Without this, it is out of place or too short*/
+    left: 60px;
     right: 0;
     height: 60px;
     background-color: #112240;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: space-between; 
     padding: 0 20px;
     transition: left 0.3s;
+    z-index: 1000;
 }
-
-
-.nav-links a {
-    color: #ccc;
-    text-decoration: none;
-    margin-left: 15px;
-}
-
-.nav-links a:hover {
-    color: white;
-}
-
-
 
 .navrightside {
     margin-left: auto;
@@ -138,233 +104,129 @@ a:hover {
     gap: 15px;
 }
 
-
-.navrightside a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.navrightside a:hover {
-    color: white;
-}
-
-
 .nav-pic {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgb(48, 48, 48); /*Makes it rounded*/
-    cursor: pointer;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
+    border: 2px solid white;
 }
 
 .nav-logo {
     height: 40px;
-    margin-left: 0px;
-}
-
-body.sidebar-expanded .navbar {
-    left: 250px;
 }
 
 #alltask{
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap; /* Allows cards to drop to next line if screen is small */
+    gap: 30px;
     padding: 20px;
     padding-left: 95px;
-    max-width: 1100;
     margin: 150px auto;
+    justify-content: center;
 }
 
-.buttons{
-    left: 10 px;
+/* Updated Task Activity Button */
+.btn-activity {
+    color: #ffffff; 
+    font-size: 16px; /* Smaller font to look less clunky */
+    background-color: #df9432;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    width: 100%; /* Makes button fill the card width */
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: background 0.3s;
 }
 
+.btn-activity:hover {
+    background-color: #c5822b;
+}
 
 .footer {
     position: fixed;
-    left: 60px;
+    left: 60px; 
     right: 0;
     bottom: 0;
     background-color: #19191a;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 0; 
+    transition: left 0.3s; 
 }
-                
+
+body.sidebar-expanded .navbar, 
+body.sidebar-expanded .footer {
+    left: 250px;
+}
 
 </style>
 </head>
 <body>
+
 <div class="navbar">
-         <div class="nav-left">
-        <img src="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" 
-             alt="Logo" class="nav-logo" style="border-radius:100px;">
+    <div class="nav-left">
+        <img src="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" alt="Logo" class="nav-logo" style="border-radius:100px;">
     </div>
-         <div class="navrightside">
-            <a href="#">Logout</a>
-            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" 
-             alt="Profile" class="nav-pic">
-        </div>
-
+    <div class="navrightside">
+        <a href="#" style="color:white; font-size: 14px; margin-right: 10px;">Logout</a>
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile" class="nav-pic">
     </div>
-
+</div>
 
 <div class="sidebar" id="sidebar">
-
     <button onclick="toggleSidebar()">☰</button>
-
-
-
-        <a href="page2.html"><i>🏠</i><span class="label">Dashboard</span></a>
-        <a href="page3.html"><i>📚</i><span class="label">Virtual Notebook</span></a>
-        <a href="page4.html"><i>📅</i><span class="label">Tasks</span></a>
-        <a href="page5.html"><i>👦</i><span class="label">Profile</span></a>
-        <a href="index.html"><i>⬅️</i><span class="label">Log out</span></a>
-
+    <a href="#"><i>🏠</i><span class="label">Dashboard</span></a>
+    <a href="#"><i>📚</i><span class="label">Virtual Notebook</span></a>
+    <a href="#"><i>📅</i><span class="label">Tasks</span></a>
+    <a href="#"><i>👦</i><span class="label">Profile</span></a>
+    <a href="#"><i>⬅️</i><span class="label">Log out</span></a>
 </div>
 
-<br><br>
-<!--"br" adds space-->
-
-<div class="">
-<h1 class="marshalacademy" id="marshalacademy" style= "color:#344792;font-weight:bold; text-align: left; font-size:80px; position: absolute; left:50px;  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);border-radius: 40px; "> 
-
-                TASKS
-</h1>
-
-</div>
-
-<!-- "absolute;left:50px" moves it slightly-->
-
+<h1 style="color:#344792; font-weight:bold; font-size:60px; margin-left: 95px; margin-top: 100px; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">TASKS</h1>
 
 <div class="container-fluid" id="alltask">
 
-  <div class="Mathtask"  id= "marshalacademy" style="background-color:#161858;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);width:400px;padding-left: 20px; padding-right:20px;">
-        <div class="">
-<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
-             Math
-            </p>
+    <!-- Math Task -->
+    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
+        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">Math</p>
+        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Drill Sheet 2</p>
+        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: April 9 2026</p>
+        <button class="btn-activity" onclick="alert('Math Activity Started')">Take this activity</button>
+    </div>
 
-            <!-- "background-color" adds a color behind the text-->
+    <!-- Science Task -->
+    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
+        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">Science</p>
+        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Laboratory Act 3</p>
+        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: April 13 2026</p>
+        <button class="btn-activity" onclick="alert('Science Activity Started')">Take this activity</button>
+    </div>
 
-<p class="fw-bold" id="marshalacademy" style="color:#daa814;text-align: center; font-size:30px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
-   Drill Sheet 2
-</p>
+    <!-- ICT Task -->
+    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
+        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">ICT</p>
+        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Quarter Project</p>
+        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: May 4 2026</p>
+        <button class="btn-activity" onclick="alert('ICT Activity Started')">Take this activity</button>
+    </div>
 
-<!--"fw-bold" turns the text bold-->
-
-<p class="" id="marshalacademy" style= "color:#3f7bd4;text-align: center; font-size:23px;"> 
-Deadline : April 9 2026 || 8:30 PM
-</p>
-
-
-</div>
-<button type="btn btn-sucess" onclick="Math()" style=" color:#ffffff; font-size: 25px; background-color:#df9432">Take this activity</button>
-</div>
-
-<!-- "<button></button" makes a button.. and the "math()" shows what the button will do.. but since theres nothing inside- nothing will happen-->
-
-<br><br>
-
-
-  <div class=""  id= "marshalacademy" style="background-color:#161858;box-shadow: 2px 2px 5px rgba(0,0,0,0.5); width:400px;padding-left: 30px; padding-right:30px; ">
-        <div class="">
-<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
-             Science
-            </p>
-
-            <!-- "background-color" adds a color behind the text-->
-
-<p class="fw-bold" id="marshalacademy" style="color:#daa814;text-align: center; font-size:30px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
-   Laboratory Act 3
-</p>
-
-
-<p class="" id="marshalacademy" style= "color:#3f7bd4;text-align: center; font-size:23px;"> 
-Deadline : April 13 2026 || 5:00 PM
-</p>
-
+    <!-- VE Task -->
+    <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
+        <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">VE</p>
+        <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Film Critique</p>
+        <p style="color:#3f7bd4; text-align: center; font-size:14px;">Deadline: April 22 2026</p>
+        <button class="btn-activity" onclick="alert('VE Activity Started')">Take this activity</button>
+    </div>
 
 </div>
-<button   class="buttons"    type="btn btn-sucess" onclick="Science()" style="font: weight 100px; color:#ffffff; font-size: 25px; background-color:#df9432">Take this activity</button>
+
+<div class="footer">
+    <p style="margin:0;">Marshal Academy | Est. 1667</p>
 </div>
-
-
-<br><br>
-
-
-
-  <div class="container"  id= "marshalacademy" style="background-color: #161858;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);width:400px;padding-left: 35px; padding-right:35px;">
-        <div class="row">
-<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
-             ICT
-            </p>
-
-         
-
-<p class="fw-bold" id="marshalacademy" style="color:#daa814;text-align: center; font-size:30px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
-   Quarter Project
-</p>
-
-
-<p class="" id="marshalacademy" style= "color:#3f7bd4;text-align: center; font-size:23px;"> 
-Deadline : May 4 2026 || 2:30 PM
-</p>
-
-
-</div>
-<button class="buttons"  type="btn btn-sucess" onclick="Science()" style="font: weight 100px; color:#ffffff; font-size: 25px; background-color:#df9432">Take this activity</button>
-</div>
-
-<br><br>
-
-
-
-  <div class="container"  id= "marshalacademy" style="background-color:#161858;box-shadow: 2px 2px 5px rgba(0,0,0,0.5);width:400px; padding-left: 30px; padding-right:30px;">
-        <div class="">
-<p class="fw-bold" id="marshalacademy" style= "color:#ffffff;text-align: center; font-size:40px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);"> 
-             VE
-            </p>
-
-      
-
-<p class="fw-bold" id="marshalacademy" style="color:#daa814;text-align: center; font-size:30px;text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);">
-   Film Critique
-</p>
-
-
-<p class="" id="marshalacademy" style= "color:#3f7bd4;text-align: center; font-size:23px;"> 
-Deadline : April 22 2026 || 8:00 AM
-</p>
-
-
-</div>
-<button class="buttons"  type="btn btn-sucess" onclick="Science()" style="font: weight 100px; color:#ffffff; font-size: 25px; background-color:#df9432">Take this activity</button>
-</div>
-
-
-<br><br><br>
-
- <div class="footer">
-    <p>Marshal Academy | Est. 1667</p>
-
-</div>
-</div>
-
-
-
 
 <script>
-function toggleSidebar() {
-    document.getElementById("sidebar").classList.toggle("expanded");
-}
-
 function toggleSidebar() {
     document.getElementById("sidebar").classList.toggle("expanded");
     document.body.classList.toggle("sidebar-expanded");
