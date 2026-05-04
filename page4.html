@@ -46,7 +46,7 @@ body.sidebar-expanded .marshalacademy  {
     left: 250px;
 }
 
-  .sidebar {
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -103,18 +103,17 @@ a:hover {
     color: white;
 }
 
-
 .navbar {
     position: fixed;
     top: 0;
-    left: 60px;
+    left: 60px;           /*Without this, it is out of place or too short*/
     right: 0;
     height: 60px;
     background-color: #112240;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: flex-start; 
     padding: 0 20px;
     transition: left 0.3s;
 }
@@ -141,7 +140,7 @@ a:hover {
 
 
 .navrightside a {
-    color: #4f4f4f;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -155,7 +154,7 @@ a:hover {
     height: 35px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid white;
+    border: 2px solid rgb(48, 48, 48); /*Makes it rounded*/
     cursor: pointer;
 }
 
@@ -166,7 +165,7 @@ a:hover {
 
 .nav-logo {
     height: 40px;
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 body.sidebar-expanded .navbar {
@@ -188,15 +187,14 @@ body.sidebar-expanded .navbar {
 
 
 .footer {
-   position: fixed;
-    left: 60px; 
+    position: fixed;
+    left: 60px;
     right: 0;
     bottom: 0;
     background-color: #19191a;
     color: white;
     text-align: center;
-    padding: 10px 0; 
-    transition: left 0.3s; 
+    padding: 10px 0;
 }
                 
 
