@@ -3,47 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tasks</title>
+<title>Tasks | Marshal Academy</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-
 /* ===== BODY ===== */
-body{
+body {
     margin: 0;
-    background-color: #f4f4f4;
+    background-image: url(https://i.pinimg.com/736x/06/88/a0/0688a01b83d3054aa9e18bbcb55e8e46.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    transition: 0.3s;
 }
 
 /* ===== SIDEBAR ===== */
-.sidebar{
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: 60px;
     height: 100vh;
-    background: #0a192f;
+    background-color: #0a192f;
     padding: 10px;
+    transition: width 0.3s;
     overflow: hidden;
-    transition: 0.3s;
     z-index: 1001;
+    display: flex;
+    flex-direction: column;
 }
 
-.sidebar.expanded{
+.sidebar.expanded {
     width: 250px;
 }
 
-.sidebar button{
+/* Fixed toggle button size */
+.toggle-btn {
     background: none;
     color: white;
     border: 1px solid white;
     padding: 5px;
     cursor: pointer;
     margin-bottom: 20px;
-    width: 100%;
+    width: 40px; 
+    height: 40px;
 }
 
-.sidebar a{
+.sidebar a {
     display: flex;
     align-items: center;
     color: #ccc;
@@ -51,102 +57,119 @@ body{
     padding: 15px 0;
 }
 
-.sidebar i{
+.sidebar i {
     width: 40px;
     text-align: center;
+    font-style: normal;
 }
 
-.label{
+.label {
     display: none;
+    margin-left: 10px;
 }
 
-.sidebar.expanded .label{
+.sidebar.expanded .label {
     display: inline;
     color: white;
 }
 
-/* ===== NAVBAR ===== */
-.navbar{
+a:hover {
+    color: white;
+}
+
+/* ===== NAVBAR (Updated to your requested style) ===== */
+.navbar {
     position: fixed;
     top: 0;
-    left: 60px;
+    left: 60px;           /* Starts after the mini sidebar */
     right: 0;
     height: 60px;
-    background: #112240;
+    background-color: #112240;
+    color: white;
     display: flex;
     align-items: center;
+    justify-content: flex-start; 
     padding: 0 20px;
-    transition: 0.3s;
+    transition: left 0.3s;
     z-index: 1000;
 }
 
-body.sidebar-expanded .navbar{
-    left: 250px;
+body.sidebar-expanded .navbar {
+    left: 250px; /* Moves when sidebar expands */
 }
 
-.nav-right{
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 40px;
+    margin-left: 0px;
+}
+
+.navrightside {
     margin-left: auto;
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.nav-right img{
+.navrightside a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-pic {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border: 2px solid white;
+    object-fit: cover;
+    border: 2px solid rgb(48, 48, 48);
+    cursor: pointer;
 }
 
 /* ===== TASK AREA ===== */
-#alltask{
+#alltask {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     padding: 20px;
-    padding-left: 95px;
-    margin: 150px auto;
+    margin-top: 100px;
+    margin-left: 80px; 
+    transition: 0.3s;
     justify-content: center;
 }
 
-body.sidebar-expanded #alltask{
-    padding-left: 270px;
+body.sidebar-expanded #alltask {
+    margin-left: 270px;
 }
 
-/* ===== TASK CARD ===== */
-.task-card{
-    background:#161858;
-    border-radius:10px;
-    width:300px;
-    padding:20px;
-    color:white;
-    transition: 0.3s;
+.task-card {
+    background: #161858;
+    border-radius: 10px;
+    width: 280px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-.task-card:hover{
-    transform: translateY(-5px);
-}
-
-/* ===== BUTTON ===== */
-.task-btn{
-    background: #ffffff;
-    color: #161858;
+.btn-activity {
+    background: #df9432;
+    color: white;
     border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
     margin-top: 10px;
-}
-
-.task-btn:hover{
-    background: #dfe3ff;
-    transform: scale(1.05);
+    cursor: pointer;
 }
 
 /* ===== FOOTER ===== */
-.footer{
+.footer {
     position: fixed;
     left: 60px;
     right: 0;
@@ -158,10 +181,9 @@ body.sidebar-expanded #alltask{
     transition: 0.3s;
 }
 
-body.sidebar-expanded .footer{
+body.sidebar-expanded .footer {
     left: 250px;
 }
-
 </style>
 </head>
 
@@ -169,7 +191,7 @@ body.sidebar-expanded .footer{
 
 <!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
-    <button onclick="toggleSidebar()">☰</button>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
     <a href="page2.html"><i>🏠</i><span class="label">Dashboard</span></a>
     <a href="page3.html"><i>📚</i><span class="label">Notebook</span></a>
@@ -178,63 +200,54 @@ body.sidebar-expanded .footer{
     <a href="index.html"><i>⬅️</i><span class="label">Logout</span></a>
 </div>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (Your specific style) -->
 <div class="navbar">
-
-    <img src="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png"
-         style="height:40px; border-radius:100px;">
-
-    <div class="nav-right">
-        <a href="#" style="color:white; text-decoration:none;">Logout</a>
-        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
+    <div class="nav-left">
+        <img src="https://www.image2url.com/r2/default/images/1777270232853-7c3e97ca-e8a1-4a12-ac48-a8891111d17a.png" 
+             alt="Logo" class="nav-logo" style="border-radius:100px;">
     </div>
-
+    
+    <div class="navrightside">
+        <a href="#">Logout</a>
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" 
+             alt="Profile" class="nav-pic">
+    </div>
 </div>
 
 <!-- TITLE -->
-<h1 style="color:#344792; font-weight:bold; font-size:60px; margin-left:95px; margin-top:100px;">
+<h1 style="color:#ffffff; font-weight:bold; font-size:60px; text-align:center; margin-top:100px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">
 TASKS
 </h1>
 
-<!-- TASKS -->
-<div class="container-fluid" id="alltask">
-
+<!-- TASKS CONTAINER -->
+<div id="alltask">
     <div class="task-card">
         <h3>Math</h3>
-        <p>Drill Sheet 2</p>
-        <p>Deadline: April 9 2026</p>
-        <button class="task-btn" onclick="alert('Math Activity Started')">
-            Take activity
-        </button>
+        <p style="color:#daa814; font-weight:bold;">Drill Sheet 2</p>
+        <p style="font-size: 12px;">Deadline: April 9 2026</p>
+        <button class="btn-activity">Take activity</button>
     </div>
 
     <div class="task-card">
         <h3>Science</h3>
-        <p>Laboratory Act 3</p>
-        <p>Deadline: April 13 2026</p>
-        <button class="task-btn" onclick="alert('Science Activity Started')">
-            Take activity
-        </button>
+        <p style="color:#daa814; font-weight:bold;">Laboratory Act 3</p>
+        <p style="font-size: 12px;">Deadline: April 13 2026</p>
+        <button class="btn-activity">Take activity</button>
     </div>
 
     <div class="task-card">
         <h3>ICT</h3>
-        <p>Quarter Project</p>
-        <p>Deadline: May 4 2026</p>
-        <button class="task-btn" onclick="alert('ICT Activity Started')">
-            Take activity
-        </button>
+        <p style="color:#daa814; font-weight:bold;">Quarter Project</p>
+        <p style="font-size: 12px;">Deadline: May 4 2026</p>
+        <button class="btn-activity">Take activity</button>
     </div>
 
     <div class="task-card">
         <h3>VE</h3>
-        <p>Film Critique</p>
-        <p>Deadline: April 22 2026</p>
-        <button class="task-btn" onclick="alert('VE Activity Started')">
-            Take activity
-        </button>
+        <p style="color:#daa814; font-weight:bold;">Film Critique</p>
+        <p style="font-size: 12px;">Deadline: April 22 2026</p>
+        <button class="btn-activity">Take activity</button>
     </div>
-
 </div>
 
 <!-- FOOTER -->
