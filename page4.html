@@ -9,7 +9,7 @@
 
 <style>
  body{
-            background-color: #f4f4f4; /* Added a light background to see the dark cards better */
+            background-color: #f4f4f4; 
             background-repeat:no-repeat;
         }
 
@@ -43,7 +43,6 @@
     width: 250px;
 }
 
-/* Sidebar Toggle Button */
 .sidebar button {
     background: none;
     color: white;
@@ -54,7 +53,7 @@
     width: 100%;
 }
 
-/* Sidebar Links */
+
 a {
     display: flex;
     align-items: center;
@@ -118,7 +117,7 @@ a:hover {
 
 #alltask{
     display: flex;
-    flex-wrap: wrap; /* Allows cards to drop to next line if screen is small */
+    flex-wrap: wrap; 
     gap: 30px;
     padding: 20px;
     padding-left: 95px;
@@ -126,15 +125,15 @@ a:hover {
     justify-content: center;
 }
 
-/* Updated Task Activity Button */
+
 .btn-activity {
     color: #ffffff; 
-    font-size: 16px; /* Smaller font to look less clunky */
+    font-size: 16px; 
     background-color: #df9432;
     border: none;
     border-radius: 5px;
     padding: 8px 15px;
-    width: 100%; /* Makes button fill the card width */
+    width: 100%; 
     font-weight: bold;
     margin-bottom: 15px;
     transition: background 0.3s;
@@ -177,18 +176,18 @@ body.sidebar-expanded .footer {
 
 <div class="sidebar" id="sidebar">
     <button onclick="toggleSidebar()">☰</button>
-    <a href="page2.html"><i>🏠</i><span class="label">Dashboard</span></a>
-    <a href="page3.html"><i>📚</i><span class="label">Virtual Notebook</span></a>
-    <a href="page4.html"><i>📅</i><span class="label">Tasks</span></a>
-    <a href="page5.html"><i>👦</i><span class="label">Profile</span></a>
-    <a href="idex.html"><i>⬅️</i><span class="label">Log out</span></a>
+    <a href="#"><i>🏠</i><span class="label">Dashboard</span></a>
+    <a href="#"><i>📚</i><span class="label">Virtual Notebook</span></a>
+    <a href="#"><i>📅</i><span class="label">Tasks</span></a>
+    <a href="#"><i>👦</i><span class="label">Profile</span></a>
+    <a href="#"><i>⬅️</i><span class="label">Log out</span></a>
 </div>
 
 <h1 style="color:#344792; font-weight:bold; font-size:60px; margin-left: 95px; margin-top: 100px; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">TASKS</h1>
 
 <div class="container-fluid" id="alltask">
 
-    <!-- Math Task -->
+    
     <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
         <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">Math</p>
         <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Drill Sheet 2</p>
@@ -196,7 +195,6 @@ body.sidebar-expanded .footer {
         <button class="btn-activity" onclick="alert('Math Activity Started')">Take this activity</button>
     </div>
 
-    <!-- Science Task -->
     <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
         <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">Science</p>
         <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Laboratory Act 3</p>
@@ -204,7 +202,6 @@ body.sidebar-expanded .footer {
         <button class="btn-activity" onclick="alert('Science Activity Started')">Take this activity</button>
     </div>
 
-    <!-- ICT Task -->
     <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
         <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">ICT</p>
         <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Quarter Project</p>
@@ -212,7 +209,6 @@ body.sidebar-expanded .footer {
         <button class="btn-activity" onclick="alert('ICT Activity Started')">Take this activity</button>
     </div>
 
-    <!-- VE Task -->
     <div style="background-color:#161858; border-radius: 10px; width:300px; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
         <p style="color:#ffffff; text-align: center; font-size:30px; font-weight: bold; margin-bottom: 0;">VE</p>
         <p style="color:#daa814; text-align: center; font-size:20px; font-weight: bold;">Film Critique</p>
