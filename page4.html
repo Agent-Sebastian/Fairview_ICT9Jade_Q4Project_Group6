@@ -109,6 +109,22 @@ body.sidebar-expanded .navbar{
     justify-content: center;
 }
 
+.task-btn{
+    background: #ffffff;
+    color: #161858;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.task-btn:hover{
+    background: #dfe3ff;
+    transform: scale(1.03);
+}
+
 body.sidebar-expanded #alltask{
     padding-left: 270px;
 }
@@ -169,28 +185,28 @@ TASKS
 <!-- TASKS -->
 <div class="container-fluid" id="alltask">
 
-    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
         <h3>Math</h3>
         <p>Drill Sheet 2</p>
         <p>Deadline: April 9 2026</p>
         <button onclick="alert('Math Activity Started')">Take activity</button>
     </div>
 
-    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
         <h3>Science</h3>
         <p>Laboratory Act 3</p>
         <p>Deadline: April 13 2026</p>
         <button onclick="alert('Science Activity Started')">Take activity</button>
     </div>
 
-    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div  class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
         <h3>ICT</h3>
         <p>Quarter Project</p>
         <p>Deadline: May 4 2026</p>
         <button onclick="alert('ICT Activity Started')">Take activity</button>
     </div>
 
-    <div style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
         <h3>VE</h3>
         <p>Film Critique</p>
         <p>Deadline: April 22 2026</p>
