@@ -109,6 +109,25 @@ body.sidebar-expanded .navbar{
     justify-content: center;
 }
 
+body.sidebar-expanded #alltask{
+    padding-left: 270px;
+}
+
+/* ===== TASK CARD ===== */
+.task-card{
+    background:#161858;
+    border-radius:10px;
+    width:300px;
+    padding:20px;
+    color:white;
+    transition: 0.3s;
+}
+
+.task-card:hover{
+    transform: translateY(-5px);
+}
+
+/* ===== BUTTON ===== */
 .task-btn{
     background: #ffffff;
     color: #161858;
@@ -118,15 +137,12 @@ body.sidebar-expanded .navbar{
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+    margin-top: 10px;
 }
 
 .task-btn:hover{
     background: #dfe3ff;
-    transform: scale(1.03);
-}
-
-body.sidebar-expanded #alltask{
-    padding-left: 270px;
+    transform: scale(1.05);
 }
 
 /* ===== FOOTER ===== */
@@ -153,7 +169,6 @@ body.sidebar-expanded .footer{
 
 <!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
-
     <button onclick="toggleSidebar()">☰</button>
 
     <a href="page2.html"><i>🏠</i><span class="label">Dashboard</span></a>
@@ -161,7 +176,6 @@ body.sidebar-expanded .footer{
     <a href="page4.html"><i>📅</i><span class="label">Tasks</span></a>
     <a href="page5.html"><i>👦</i><span class="label">Profile</span></a>
     <a href="index.html"><i>⬅️</i><span class="label">Logout</span></a>
-
 </div>
 
 <!-- NAVBAR -->
@@ -185,32 +199,40 @@ TASKS
 <!-- TASKS -->
 <div class="container-fluid" id="alltask">
 
-    <div class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div class="task-card">
         <h3>Math</h3>
         <p>Drill Sheet 2</p>
         <p>Deadline: April 9 2026</p>
-        <button onclick="alert('Math Activity Started')">Take activity</button>
+        <button class="task-btn" onclick="alert('Math Activity Started')">
+            Take activity
+        </button>
     </div>
 
-    <div class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div class="task-card">
         <h3>Science</h3>
         <p>Laboratory Act 3</p>
         <p>Deadline: April 13 2026</p>
-        <button onclick="alert('Science Activity Started')">Take activity</button>
+        <button class="task-btn" onclick="alert('Science Activity Started')">
+            Take activity
+        </button>
     </div>
 
-    <div  class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div class="task-card">
         <h3>ICT</h3>
         <p>Quarter Project</p>
         <p>Deadline: May 4 2026</p>
-        <button onclick="alert('ICT Activity Started')">Take activity</button>
+        <button class="task-btn" onclick="alert('ICT Activity Started')">
+            Take activity
+        </button>
     </div>
 
-    <div class="task-btn" style="background:#161858; border-radius:10px; width:300px; padding:20px; color:white;">
+    <div class="task-card">
         <h3>VE</h3>
         <p>Film Critique</p>
         <p>Deadline: April 22 2026</p>
-        <button onclick="alert('VE Activity Started')">Take activity</button>
+        <button class="task-btn" onclick="alert('VE Activity Started')">
+            Take activity
+        </button>
     </div>
 
 </div>
@@ -220,7 +242,6 @@ TASKS
     Marshal Academy | Est. 1667
 </div>
 
-<!-- SCRIPT -->
 <script>
 function toggleSidebar(){
     document.getElementById("sidebar").classList.toggle("expanded");
